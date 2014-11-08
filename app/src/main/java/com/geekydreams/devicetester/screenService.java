@@ -12,6 +12,7 @@ import com.geekydreams.devicetester.ScreenOnReciever.*;
  * Created by Nilay on 08/11/2014.
  */
 public class screenService extends Service {
+    int myName;
 
     static long screenOnTime;
     BroadcastReceiver mReceiver = null;
