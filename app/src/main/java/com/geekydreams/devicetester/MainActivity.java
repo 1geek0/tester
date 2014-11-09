@@ -2,6 +2,7 @@ package com.geekydreams.devicetester;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.graphics.Typeface;
 import android.hardware.Camera;
 import android.os.Build;
@@ -13,7 +14,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +26,7 @@ import org.w3c.dom.Text;
 
 import com.geekydreams.devicetester.home;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 
@@ -37,11 +43,9 @@ public class MainActivity extends Activity {
         TextView brandView = (TextView) findViewById(R.id.brandName);
         TextView socView = (TextView) findViewById(R.id.SoC);
 
+
+
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
-
-
-
-
 
         //Getting All The Info!
         String osString = Build.VERSION.RELEASE;

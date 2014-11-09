@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,15 +26,10 @@ public class home extends Activity {
         TextView hello = (TextView) findViewById(R.id.hello);
         TextView info = (TextView) findViewById(R.id.info);
         TextView btnPress = (TextView) findViewById(R.id.pressbtn);
-        ActionBar actionBar = getActionBar();
-        actionBar.setTitle("Nilay");
-        actionBar.setSubtitle("Awesomeness 100%");
-        WindowManager.LayoutParams params =
-
-                getWindow().getAttributes();
-        params.flags |= WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-        params.screenBrightness = 0.5f;
-        getWindow().setAttributes(params);
+        if (Build.VERSION.SDK_INT >= 11) {
+            ActionBar actionBar = getActionBar();
+            actionBar.hide();
+        }
 
 
         //Handling The Button Task

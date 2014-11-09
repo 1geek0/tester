@@ -26,6 +26,7 @@ public class screenService extends Service {
     public void onCreate() {
         super.onCreate();
         Toast.makeText(getApplicationContext(), "Hello", Toast.LENGTH_SHORT);
+        Log.d("hello", "NIlay");
 
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         mReceiver = new ScreenOnReciever();
