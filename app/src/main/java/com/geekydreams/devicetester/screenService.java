@@ -2,10 +2,13 @@ package com.geekydreams.devicetester;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.geekydreams.devicetester.ScreenOnReciever.*;
 
@@ -22,6 +25,8 @@ public class screenService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Toast.makeText(getApplicationContext(), "Hello", Toast.LENGTH_SHORT);
+
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         mReceiver = new ScreenOnReciever();
         registerReceiver(mReceiver, filter);
@@ -30,7 +35,9 @@ public class screenService extends Service {
 
     @Override
     public void onStart(Intent intent, int startId) {
-        while (ScreenOnReciever.screenOn == true) {
+        PowerManager pw = (PowerManager) getSystemService(Context.POWER_SERVICE);
+
+        while (pw.isScreenOn()) {
             Log.d(Debug_oncreate, "Goal!");
             screenOnTime++;
         }

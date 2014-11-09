@@ -1,17 +1,21 @@
 package com.geekydreams.devicetester;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Typeface;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Handler;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -32,6 +36,11 @@ public class MainActivity extends Activity {
         TextView osView = (TextView) findViewById(R.id.os);
         TextView brandView = (TextView) findViewById(R.id.brandName);
         TextView socView = (TextView) findViewById(R.id.SoC);
+
+        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+
+
+
 
 
         //Getting All The Info!
