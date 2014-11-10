@@ -16,11 +16,15 @@ import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -32,6 +36,7 @@ import org.w3c.dom.Text;
 import com.geekydreams.devicetester.home;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -43,6 +48,17 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class
+                    .getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //Declaration & Initialisation of all the Textviews in the layout
         TextView osView = (TextView) findViewById(R.id.os);
@@ -54,17 +70,13 @@ public class MainActivity extends Activity {
         //Getting All The Info!
         String osString = Build.VERSION.RELEASE;
         String brandString = Build.BRAND;
-        String socString = Build.CPU_ABI2;
+        String socString = Build.CPU_ABI;
 
         //Setting the texts of the textviews to all the gathered info!
         osView.setText(osString);
         brandView.setText(brandString);
         socView.setText(socString);
 
-        if (Build.VERSION.SDK_INT >= 11){
-            ActionBar actionBar = getActionBar();
-            actionBar.hide();
-        }
 
 
         final android.os.Handler handler = new Handler();
