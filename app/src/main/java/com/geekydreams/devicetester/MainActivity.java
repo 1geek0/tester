@@ -1,13 +1,17 @@
 package com.geekydreams.devicetester;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.Typeface;
 import android.hardware.Camera;
 import android.os.Build;
+import android.os.Build.VERSION.*;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.os.StatFs;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
@@ -19,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +31,7 @@ import org.w3c.dom.Text;
 
 import com.geekydreams.devicetester.home;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -43,8 +49,6 @@ public class MainActivity extends Activity {
         TextView brandView = (TextView) findViewById(R.id.brandName);
         TextView socView = (TextView) findViewById(R.id.SoC);
 
-
-
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
 
         //Getting All The Info!
@@ -57,12 +61,25 @@ public class MainActivity extends Activity {
         brandView.setText(brandString);
         socView.setText(socString);
 
+        if (Build.VERSION.SDK_INT >= 11){
+            ActionBar actionBar = getActionBar();
+            actionBar.hide();
+        }
+
 
         final android.os.Handler handler = new Handler();
         handler.post(new Runnable() {
             final TextView toTimeView = (TextView) findViewById(R.id.toTime);
             final TextView upTimeView = (TextView) findViewById(R.id.upTime);
             final TextView screenTimeView = (TextView) findViewById(R.id.screenTime);
+
+            public long getTotalInternalMemorySize() {
+                final File path = Environment.getDataDirectory();
+                final StatFs stat = new StatFs(path.getPath());
+                final long blockSize = stat.getBlockSize();
+                final long totalBlocks = stat.getBlockCount();
+                return totalBlocks * blockSize;
+            }
 
             @Override
             public void run() {
@@ -91,6 +108,7 @@ public class MainActivity extends Activity {
                 handler.postDelayed(this, 1);
             }
         });
+
     }
 
 
