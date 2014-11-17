@@ -5,23 +5,35 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.appflood.AppFlood;
+import com.flurry.android.FlurryAds;
+import com.flurry.android.FlurryAdSize;
+import com.flurry.android.FlurryAgent;
+import com.flurry.android.FlurryAdListener;
+import com.startapp.android.publish.SDKAdPreferences;
+import com.startapp.android.publish.StartAppAd;
+import com.startapp.android.publish.StartAppSDK;
 
 
 public class home extends Activity {
 
+    private StartAppAd startAppAd = new StartAppAd(this);
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StartAppSDK.init(this, "105206822", "211783112", new SDKAdPreferences().setAge(10));
         setContentView(R.layout.activity_home);
+        StartAppAd.showSlider(this);
         //Initialising All Text Components!
         TextView hello = (TextView) findViewById(R.id.hello);
         TextView info = (TextView) findViewById(R.id.info);
@@ -32,8 +44,9 @@ public class home extends Activity {
         }
 
 
+
         //Handling The Button Task
-        ImageView getInfo = (ImageView) findViewById(R.id.getInfo);
+        Button getInfo = (Button) findViewById(R.id.getInfo);
         getInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,5 +74,32 @@ public class home extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        startAppAd.onResume();
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        startAppAd.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+        startAppAd.onBackPressed();
+        super.onBackPressed();
+    }
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        FlurryAgent.onStartSession(this, "FY924J455MCYYG2YRK73");
+    }
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        FlurryAgent.onEndSession(this);
     }
 }
