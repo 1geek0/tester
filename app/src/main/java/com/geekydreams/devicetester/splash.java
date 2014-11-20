@@ -4,9 +4,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,9 +16,13 @@ public class splash extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        if (Build.VERSION.SDK_INT >= 11){
-            ActionBar actionBar = getActionBar();
-            actionBar.hide();
+        if (Build.VERSION.SDK_INT >= 11) {
+            try{
+                ActionBar actionBar = getActionBar();
+                actionBar.hide();
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
         }
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

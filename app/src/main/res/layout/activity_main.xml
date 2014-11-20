@@ -19,8 +19,9 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         style="@style/AppTheme">
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:background="#ffffffff"
         android:id="@+id/brandRelative">
 
@@ -28,8 +29,7 @@
             android:id="@+id/brandName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_below="@+id/brandIntro"
             android:layout_centerHorizontal="true"
             android:text="brandNmae"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -40,8 +40,6 @@
             android:id="@+id/brandIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Device Brand"
@@ -49,21 +47,18 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#ff1dacff"
         android:id="@+id/osRelative"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/brandRelative"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_below="@+id/brandRelative">
 
         <TextView
             android:id="@+id/os"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_below="@+id/osIntro"
             android:layout_centerHorizontal="true"
             android:text="os"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -74,8 +69,6 @@
             android:id="@+id/osIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Android Version"
@@ -83,7 +76,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#ffffffff"
         android:id="@+id/SoCRelative"
@@ -96,8 +89,7 @@
             android:id="@+id/SoC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_below="@+id/SoCIntro"
             android:layout_centerHorizontal="true"
             android:text="SoC"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -108,8 +100,6 @@
             android:id="@+id/SoCIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Processor"
@@ -117,7 +107,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#ff1dacff"
         android:id="@+id/upTimeRelative"
@@ -129,8 +119,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Usage Time"
@@ -141,8 +129,7 @@
             android:id="@+id/upTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_below="@+id/upTimeIntro"
             android:layout_centerHorizontal="true"
             android:text="upTime"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -151,7 +138,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#ffffffff"
         android:layout_below="@+id/upTimeRelative"
@@ -163,8 +150,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Time Since Boot"
@@ -176,8 +161,7 @@
             android:id="@+id/toTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_below="@+id/toTimeIntro"
             android:layout_centerHorizontal="true"
             android:text="toTime"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -186,7 +170,7 @@
     </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:clickable="false"
@@ -202,9 +186,8 @@
                 android:text="toRAM"
                 android:id="@+id/toRAM"
                 android:textSize="25sp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_below="@+id/toRAMIntro"
+                android:layout_centerHorizontal="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -213,13 +196,11 @@
                 android:text="Total RAM"
                 android:id="@+id/toRAMIntro"
                 android:textSize="25sp"
-                android:layout_alignTop="@+id/pressBTN"
-                android:layout_alignRight="@+id/startAppBanner"
-                android:layout_alignEnd="@+id/startAppBanner" />
+                android:layout_centerHorizontal="true"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="#ffffffff"
             android:layout_below="@+id/usRAMRelative"
@@ -231,26 +212,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="IMEI"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:id="@+id/imeiIntro"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/imeiIntro"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="25sp"
                 android:text="imei"
+                android:layout_centerHorizontal="true"
                 android:id="@+id/imeiNumber"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:clickable="false"
@@ -266,9 +245,8 @@
                 android:text="usRAM"
                 android:id="@+id/usRAM"
                 android:textSize="25sp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_below="@+id/usRAMIntro"
+                android:layout_centerHorizontal="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -277,12 +255,10 @@
                 android:text="Used RAM"
                 android:id="@+id/usRAMIntro"
                 android:textSize="25sp"
-                android:layout_alignTop="@+id/pressBTN"
-                android:layout_alignRight="@+id/startAppBanner"
-                android:layout_alignEnd="@+id/startAppBanner" />
+                android:layout_centerHorizontal="true" />
         </RelativeLayout>
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="#ffffffff"
             android:layout_below="@+id/pressBTN"
@@ -291,25 +267,167 @@
             android:layout_marginTop="30dp"
             android:id="@+id/avRAMRelative">
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/avRAMIntro"
                 android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Available RAM"
-                android:textSize="25sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="25sp"
                 android:text="avRAM"
                 android:id="@+id/avRAM"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Available RAM"
+                android:textSize="25sp"
+                android:id="@id/avRAMIntro"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:background="#ff1dacff"
+            android:id="@+id/tointRelative"
+            android:layout_below="@+id/imeiRAMRelative"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="intStorage"
+                android:id="@+id/intStorage"
+                android:textSize="25sp"
+                android:layout_below="@+id/intStorageIntro"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Total Internal Storage"
+                android:id="@+id/intStorageIntro"
+                android:textSize="25sp"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff"
+            android:layout_below="@+id/tointRelative"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/avIntRelative">
+
+            <TextView
+                android:id="@+id/avIntIntro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Available Internal Storage"
+                android:textSize="25sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/avIntIntro"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="25sp"
+                android:text="avIntStorage"
+                android:id="@+id/avInt"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:background="#ff1dacff"
+            android:id="@+id/toexRelative"
+            android:layout_below="@+id/avIntRelative"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="extStorage"
+                android:id="@+id/extStorage"
+                android:textSize="25sp"
+                android:layout_below="@+id/extStorageIntro"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Total External Storage"
+                android:id="@+id/extStorageIntro"
+                android:textSize="25sp"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff"
+            android:layout_below="@+id/toexRelative"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/avExtRelative">
+
+            <TextView
+                android:id="@+id/avExtIntro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Available Exxternal Storage"
+                android:textSize="25sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/avExtIntro"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="25sp"
+                android:text="avExtStorage"
+                android:id="@+id/avExtStorage"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:background="#ff1dacff"
+            android:id="@+id/phNumberRelative"
+            android:layout_below="@+id/avExtRelative"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="phNumber"
+                android:id="@+id/phNumber"
+                android:textSize="25sp"
+                android:layout_below="@+id/phNumberIntro"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Phone Number"
+                android:id="@+id/phNumberIntro"
+                android:textSize="25sp"
+                android:layout_centerHorizontal="true" />
         </RelativeLayout>
 
 
@@ -321,14 +439,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/startAppBanner4"
-            android:layout_alignStart="@+id/startAppBanner4" />
+            android:layout_alignStart="@+id/startAppBanner4"
+            android:visibility="gone"/>
         <com.startapp.android.publish.banner.Banner
             android:id="@+id/startAppBanner2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/startAppBanner3"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="30dp"
+            android:visibility="gone"/>
         <com.startapp.android.publish.banner.Banner
             android:id="@+id/startAppBanner3"
             android:layout_width="wrap_content"
@@ -336,7 +456,8 @@
             android:layout_below="@+id/startAppBanner4"
             android:layout_alignLeft="@+id/startAppBanner4"
             android:layout_alignStart="@+id/startAppBanner4"
-            android:layout_marginTop="35dp" />
+            android:layout_marginTop="35dp"
+            android:visibility="gone"/>
         <com.startapp.android.publish.banner.Banner
             android:id="@+id/startAppBanner4"
             android:layout_width="wrap_content"
@@ -344,6 +465,7 @@
             android:layout_below="@+id/startAppBanner"
             android:layout_alignLeft="@+id/startAppBanner2"
             android:layout_alignStart="@+id/startAppBanner2"
-            android:layout_marginTop="42dp" />
+            android:layout_marginTop="42dp"
+            android:visibility="gone"/>
     </LinearLayout>
 </ScrollView>

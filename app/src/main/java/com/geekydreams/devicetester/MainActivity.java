@@ -1,52 +1,28 @@
 package com.geekydreams.devicetester;
 
-import android.accounts.AccountManager;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.database.DataSetObserver;
-import android.graphics.Typeface;
-import android.hardware.Camera;
 import android.os.Build;
-import android.os.Build.VERSION.*;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.PowerManager;
 import android.os.StatFs;
 import android.os.SystemClock;
-import android.provider.Settings;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import com.geekydreams.devicetester.home;
-import com.startapp.android.publish.SDKAdPreferences;
 import com.startapp.android.publish.StartAppAd;
 import com.startapp.android.publish.StartAppSDK;
 
 import java.io.File;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicIntegerArray;
 
 
 public class MainActivity extends Activity {
@@ -76,6 +52,11 @@ public class MainActivity extends Activity {
         TextView socView = (TextView) findViewById(R.id.SoC);
         TextView toRAMView = (TextView) findViewById(R.id.toRAM);
         TextView imeiView = (TextView) findViewById(R.id.imeiNumber);
+        TextView avIntStorageView = (TextView) findViewById(R.id.avInt);
+        TextView intStorageView = (TextView) findViewById(R.id.intStorage);
+        TextView toExtView = (TextView) findViewById(R.id.extStorage);
+        TextView avExtView = (TextView) findViewById(R.id.avExtStorage);
+        TextView phNumberView = (TextView) findViewById(R.id.phNumber);
         final TextView usRAMView = (TextView) findViewById(R.id.usRAM);
         final TextView avRAMView = (TextView) findViewById(R.id.avRAM);
 
@@ -84,8 +65,12 @@ public class MainActivity extends Activity {
         imeiView.setText(imei);
         CellLocation location = telephonyManager.getCellLocation();
         String locationSring = location.toString();
+        phNumberView.setText(locationSring);
 
-
+        intStorageView.setText(getTotalInternalMemorySize());
+        avIntStorageView.setText(getAvailableInternalMemorySize());
+        toExtView.setText(getTotalExternalMemorySize());
+        avExtView.setText(getAvailableExternalMemorySize());
 
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
@@ -126,26 +111,20 @@ public class MainActivity extends Activity {
             final TextView toTimeView = (TextView) findViewById(R.id.toTime);
             final TextView upTimeView = (TextView) findViewById(R.id.upTime);
 
-            public long getTotalInternalMemorySize() {
-                final File path = Environment.getDataDirectory();
-                final StatFs stat = new StatFs(path.getPath());
-                final long blockSize = stat.getBlockSize();
-                final long totalBlocks = stat.getBlockCount();
-                return totalBlocks * blockSize;
-            }
+
 
             @Override
             public void run() {
                 Long toTimeLong = SystemClock.elapsedRealtime();
                 String toTimeString = "" + toTimeLong;
                 int toTimeInt = Integer.parseInt(toTimeString);
-                String toTimehms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(toTimeInt),
+                String toTimehms = String.format("%02d H:%02d M:%02d S", TimeUnit.MILLISECONDS.toHours(toTimeInt),
                         TimeUnit.MILLISECONDS.toMinutes(toTimeInt) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(toTimeInt)),
                         TimeUnit.MILLISECONDS.toSeconds(toTimeInt) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(toTimeInt)));
                 Long upTimeLong = SystemClock.uptimeMillis();
                 String upTimeString = "" + upTimeLong;
                 int upTimeInt = Integer.parseInt(upTimeString);
-                String upTimehms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(upTimeInt),
+                String upTimehms = String.format("%02d H:%02d M:%02d S", TimeUnit.MILLISECONDS.toHours(upTimeInt),
                         TimeUnit.MILLISECONDS.toMinutes(upTimeInt) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(upTimeInt)),
                         TimeUnit.MILLISECONDS.toSeconds(upTimeInt) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(upTimeInt)));
 
@@ -206,5 +185,73 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public static boolean externalMemoryAvailable() {
+        return android.os.Environment.getExternalStorageState().equals(
+                android.os.Environment.MEDIA_MOUNTED);
+    }
+
+    public static String getAvailableInternalMemorySize() {
+        File path = Environment.getDataDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        long blockSize = stat.getBlockSize();
+        long availableBlocks = stat.getAvailableBlocks();
+        return formatSize(availableBlocks * blockSize);
+    }
+
+    public static String getTotalInternalMemorySize() {
+        File path = Environment.getDataDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        long blockSize = stat.getBlockSize();
+        long totalBlocks = stat.getBlockCount();
+        return formatSize(totalBlocks * blockSize);
+    }
+
+    public static String getAvailableExternalMemorySize() {
+        if (externalMemoryAvailable()) {
+            File path = Environment.getExternalStorageDirectory();
+            StatFs stat = new StatFs(path.getPath());
+            long blockSize = stat.getBlockSize();
+            long availableBlocks = stat.getAvailableBlocks();
+            return formatSize(availableBlocks * blockSize);
+        } else {
+            return null;
+        }
+    }
+
+    public static String getTotalExternalMemorySize() {
+        if (externalMemoryAvailable()) {
+            File path = Environment.getExternalStorageDirectory();
+            StatFs stat = new StatFs(path.getPath());
+            long blockSize = stat.getBlockSize();
+            long totalBlocks = stat.getBlockCount();
+            return formatSize(totalBlocks * blockSize);
+        } else {
+            return null;
+        }
+    }
+
+    public static String formatSize(long size) {
+        String suffix = null;
+
+        if (size >= 1024) {
+            suffix = "KB";
+            size /= 1024;
+            if (size >= 1024) {
+                suffix = "MB";
+                size /= 1024;
+            }
+        }
+
+        StringBuilder resultBuffer = new StringBuilder(Long.toString(size));
+
+        int commaOffset = resultBuffer.length() - 3;
+        while (commaOffset > 0) {
+            resultBuffer.insert(commaOffset, ',');
+            commaOffset -= 3;
+        }
+
+        if (suffix != null) resultBuffer.append(suffix);
+        return resultBuffer.toString();
     }
 }
