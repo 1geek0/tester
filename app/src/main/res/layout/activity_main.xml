@@ -5,6 +5,10 @@
     tools:context="com.geekydreams.devicetester.MainActivity"
     android:background="#ff000000">
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -351,7 +355,8 @@
             android:background="#ff1dacff"
             android:id="@+id/toexRelative"
             android:layout_below="@+id/avIntRelative"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -380,7 +385,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="30dp"
-            android:id="@+id/avExtRelative">
+            android:id="@+id/avExtRelative"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/avExtIntro"
@@ -388,7 +394,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Available Exxternal Storage"
+                android:text="Available External Storage"
                 android:textSize="25sp" />
             <TextView
                 android:layout_width="wrap_content"
@@ -408,7 +414,8 @@
             android:background="#ff1dacff"
             android:id="@+id/phNumberRelative"
             android:layout_below="@+id/avExtRelative"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -434,38 +441,9 @@
 
     </RelativeLayout>
         <com.startapp.android.publish.banner.Banner
-            android:id="@+id/startAppBanner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/startAppBanner4"
-            android:layout_alignStart="@+id/startAppBanner4"
-            android:visibility="gone"/>
-        <com.startapp.android.publish.banner.Banner
-            android:id="@+id/startAppBanner2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/startAppBanner3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:visibility="gone"/>
-        <com.startapp.android.publish.banner.Banner
-            android:id="@+id/startAppBanner3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/startAppBanner4"
-            android:layout_alignLeft="@+id/startAppBanner4"
-            android:layout_alignStart="@+id/startAppBanner4"
-            android:layout_marginTop="35dp"
-            android:visibility="gone"/>
-        <com.startapp.android.publish.banner.Banner
             android:id="@+id/startAppBanner4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/startAppBanner"
-            android:layout_alignLeft="@+id/startAppBanner2"
-            android:layout_alignStart="@+id/startAppBanner2"
-            android:layout_marginTop="42dp"
-            android:visibility="gone"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
+    </RelativeLayout>
 </ScrollView>

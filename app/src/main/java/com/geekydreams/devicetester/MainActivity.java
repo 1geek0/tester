@@ -11,6 +11,7 @@ import android.os.StatFs;
 import android.os.SystemClock;
 import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,12 +21,21 @@ import android.widget.TextView;
 import com.startapp.android.publish.StartAppAd;
 import com.startapp.android.publish.StartAppSDK;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 
 public class MainActivity extends Activity {
+
 
 
     @Override
@@ -60,17 +70,15 @@ public class MainActivity extends Activity {
         final TextView usRAMView = (TextView) findViewById(R.id.usRAM);
         final TextView avRAMView = (TextView) findViewById(R.id.avRAM);
 
-        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String imei = telephonyManager.getDeviceId();
         imeiView.setText(imei);
-        CellLocation location = telephonyManager.getCellLocation();
-        String locationSring = location.toString();
-        phNumberView.setText(locationSring);
+
+
+
 
         intStorageView.setText(getTotalInternalMemorySize());
         avIntStorageView.setText(getAvailableInternalMemorySize());
-        toExtView.setText(getTotalExternalMemorySize());
-        avExtView.setText(getAvailableExternalMemorySize());
 
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
@@ -78,19 +86,19 @@ public class MainActivity extends Activity {
             activityManager.getMemoryInfo(memoryInfo);
             Long toRAMlong = memoryInfo.totalMem;
             String toRAMString = "" + toRAMlong;
-            final Integer toRAMInt = Integer.parseInt(toRAMString)/1048576;
+            final Integer toRAMInt = Integer.parseInt(toRAMString) / 1048576;
 
 
             String toRAMGB, toRAMMB;
-            if (toRAMInt >= 1024){
-                toRAMGB = String.valueOf(toRAMInt/1024);
+            if (toRAMInt >= 1024) {
+                toRAMGB = String.valueOf(toRAMInt / 1024);
                 toRAMView.setText(toRAMGB + " GB");
             } else {
                 toRAMMB = String.valueOf(toRAMInt);
                 toRAMView.setText(toRAMMB + " MB");
             }
 
-        } else if(Build.VERSION.SDK_INT < 16){
+        } else if (Build.VERSION.SDK_INT < 16) {
             toRAMView.setVisibility(View.GONE);
         }
 
@@ -105,12 +113,10 @@ public class MainActivity extends Activity {
         socView.setText(socString);
 
 
-
         final android.os.Handler handler = new Handler();
         handler.post(new Runnable() {
             final TextView toTimeView = (TextView) findViewById(R.id.toTime);
             final TextView upTimeView = (TextView) findViewById(R.id.upTime);
-
 
 
             @Override
@@ -134,29 +140,28 @@ public class MainActivity extends Activity {
 
                 // Now About The RAM Stuff
 
-                if(Build.VERSION.SDK_INT >= 16){
+                if (Build.VERSION.SDK_INT >= 16) {
                     ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
                     ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
                     activityManager.getMemoryInfo(memoryInfo);
                     Long toRAMLong = memoryInfo.totalMem;
                     Long avRAMLong = memoryInfo.availMem;
-                    String toRAMString = ""+toRAMLong;
-                    String avRAMString = ""+avRAMLong;
-                    Integer avRAMInt = Integer.parseInt(avRAMString)/1048576;
-                    Integer toRAMInt = Integer.parseInt(toRAMString)/1048576;
+                    String toRAMString = "" + toRAMLong;
+                    String avRAMString = "" + avRAMLong;
+                    Integer avRAMInt = Integer.parseInt(avRAMString) / 1048576;
+                    Integer toRAMInt = Integer.parseInt(toRAMString) / 1048576;
                     Integer usRAM = toRAMInt - avRAMInt;
-                    if (avRAMInt >= 1024){
-                        String avRAMGB = String.valueOf(avRAMInt/1024);
+                    if (avRAMInt >= 1024) {
+                        String avRAMGB = String.valueOf(avRAMInt / 1024);
                         avRAMView.setText(avRAMGB + " GB");
                     } else {
                         String avRAMMB = String.valueOf(avRAMInt);
-                        avRAMView.setText(avRAMMB+" MB");
+                        avRAMView.setText(avRAMMB + " MB");
                     }
-                    if (usRAM >= 1024){
-                        String usRAMGB = String.valueOf(usRAM/1024 + " GB");
+                    if (usRAM >= 1024) {
+                        String usRAMGB = String.valueOf(usRAM / 1024 + " GB");
                         usRAMView.setText(usRAMGB);
-                    }
-                    else {
+                    } else {
                         String usRAMMB = String.valueOf(usRAM + " MB");
                         usRAMView.setText(usRAMMB);
                     }

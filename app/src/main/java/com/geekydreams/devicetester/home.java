@@ -55,21 +55,13 @@ public class home extends Activity {
         //Initialising All Text Components!
         Button bkpButton = (Button) findViewById(R.id.bkp);
         Button cCacheButton = (Button) findViewById(R.id.cCache);
-        TextView hello = (TextView) findViewById(R.id.hello);
         TextView info = (TextView) findViewById(R.id.info);
         TextView btnPress = (TextView) findViewById(R.id.pressbtn);
 
 
 
 
-        if (Build.VERSION.SDK_INT >= 11) {
-            try {
-                ActionBar actionBar = getActionBar();
-                actionBar.hide();
-            } catch (NullPointerException e){
-                e.printStackTrace();
-            }
-        }
+
 
 
 
