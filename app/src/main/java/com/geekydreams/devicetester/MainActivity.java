@@ -1,3 +1,21 @@
+//Copyright (c) 2014 Nilay Kulkarni
+/*
+ * This file is part of Know Your Droid.
+ *
+ *     Know Your Droid is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Know Your Droid is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Know Your Droid.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.geekydreams.devicetester;
 
 import android.app.Activity;
@@ -9,29 +27,18 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.StatFs;
 import android.os.SystemClock;
-import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.TextView;
-
-import com.startapp.android.publish.StartAppAd;
-import com.startapp.android.publish.StartAppSDK;
-
-import java.io.BufferedReader;
-import java.io.DataInputStream;
+import com.appfireworks.android.listener.AppModuleListener;
+import com.appfireworks.android.track.AppTracker;
+import com.ewefkqqipbhzwxfqgmrm.AdController;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
 import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
 
 
 public class MainActivity extends Activity {
@@ -41,9 +48,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StartAppSDK.init(this, "105206822", "211783112", true);
         setContentView(R.layout.activity_main);
-        StartAppAd.showSlider(this);
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
             Field menuKeyField = ViewConfiguration.class
@@ -259,4 +264,6 @@ public class MainActivity extends Activity {
         if (suffix != null) resultBuffer.append(suffix);
         return resultBuffer.toString();
     }
+
 }
+

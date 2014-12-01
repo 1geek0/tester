@@ -1,18 +1,37 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!--Copyright (c) 2014 Nilay Kulkarni-->
+
+<!--
+  ~ This file is part of Know Your Droid.
+  ~
+  ~     Know Your Droid is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Know Your Droid is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Know Your Droid.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:drawable/screen_background_dark"
-
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-
+    android:background="@drawable/background"
     tools:context=".home">
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"  >
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -28,55 +47,80 @@
         android:layout_marginTop="50dp"
         android:visibility="gone">
 
-        <TextView
-            android:id="@+id/pressbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Press The Above Button To Get Info About Your Device!"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#ffffffff"
-            android:layout_below="@+id/info" />
+
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout3"
-        android:layout_below="@+id/relativeLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp">
+        android:layout_height="400dp"
+        android:id="@+id/relativeLayout3"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/xdalink"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true">
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
+            android:background="@drawable/shape"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:text="Get Info"
-            android:layout_below="@id/info"
             android:id="@+id/getInfo"
-            android:background="#ff059bd1"
             android:textColor="#ffffffff"
-            android:textSize="40sp"/>
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:elevation="10dp"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp" />
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:text="Backup IMEI"
             android:layout_below="@id/getInfo"
             android:layout_marginTop="30dp"
             android:id="@+id/bkp"
-            android:background="#ff059bd1"
             android:textColor="#ffffffff"
-            android:textSize="40sp"/>
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:elevation="10dp"
+            android:background="@drawable/shape"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp" />
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:text="Clear Cache"
             android:layout_below="@id/bkp"
             android:layout_marginTop="30dp"
             android:id="@+id/cCache"
-            android:background="#ff059bd1"
             android:textColor="#ffffffff"
-            android:textSize="40sp"/>
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:elevation="10dp"
+            android:background="@drawable/shape"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kill Background Apps"
+            android:layout_below="@id/cCache"
+            android:layout_marginTop="30dp"
+            android:id="@+id/bg"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:elevation="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
+            android:paddingTop="10sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -86,61 +130,52 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
-        TextView
-            android:id="@+id/hello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/app_name"
-            android:textColor="#ffffffff"
-            android:textSize="40sp" />
-
         <TextView
             android:id="@+id/info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:text="Know Your Droid Is The Complete Solution For Your Android Device's Maintanance Jobs Like : Clearing Cache, Giving You Information About Your Device, Backing Up IMEI Number"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textColor="#ffffffff"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="bold"
+            android:elevation="5dp"
+            android:background="#174E46" />
+
     </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guide To Upgrade Your Android Version"
+                android:id="@+id/upGrade"
+                android:textColor="#006059"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="http://forum.xda-developers.com/showthread.php?t=1941028"
+                android:id="@+id/xdalink"
+                android:layout_toEndOf="@+id/pressBTN"
+                android:background="@drawable/shape"
+                android:autoLink="web"
+                android:textColor="#ffffffff"
+                android:textStyle="italic"
+                android:textSize="15dp"
+                android:layout_below="@+id/upGrade"
+                android:layout_toRightOf="@+id/pressBTN" />
 
 
         </RelativeLayout>
-
-        <com.startapp.android.publish.banner.Banner
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:visibility="invisible" />
-
-        <com.startapp.android.publish.banner.Banner
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:visibility="invisible" />
-
-        <com.startapp.android.publish.banner.Banner
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_alignParentBottom="true"
-android:layout_centerHorizontal="true"
-android:visibility="invisible" />
-
-
-
-        <com.startapp.android.publish.banner.Banner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:visibility="invisible"
-            android:id="@+id/view" />
     </LinearLayout>
 </ScrollView>
+</LinearLayout>

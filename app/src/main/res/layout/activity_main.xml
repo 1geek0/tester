@@ -1,13 +1,37 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!--Copyright (c) 2014 Nilay Kulkarni-->
+
+<!--
+  ~ This file is part of Know Your Droid.
+  ~
+  ~     Know Your Droid is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Know Your Droid is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Know Your Droid.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.geekydreams.devicetester.MainActivity"
-    android:background="#ff000000">
+    android:outlineProvider="background"
+    android:background="@drawable/background">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -26,8 +50,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="#ffffffff"
-        android:id="@+id/brandRelative">
+        android:background="@drawable/maintiles"
+        android:id="@+id/brandRelative"
+        android:elevation="10dp">
 
         <TextView
             android:id="@+id/brandName"
@@ -38,7 +63,9 @@
             android:text="brandNmae"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/brandIntro"
@@ -47,13 +74,15 @@
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Device Brand"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#ff1dacff"
+        android:background="@drawable/maintiles"
         android:id="@+id/osRelative"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/brandRelative">
@@ -67,7 +96,9 @@
             android:text="os"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/osIntro"
@@ -76,13 +107,15 @@
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Android Version"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffffff"
+        android:background="@drawable/maintiles"
         android:id="@+id/SoCRelative"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/osRelative"
@@ -98,7 +131,9 @@
             android:text="SoC"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/SoCIntro"
@@ -107,13 +142,15 @@
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Processor"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#ff1dacff"
+        android:background="@drawable/maintiles"
         android:id="@+id/upTimeRelative"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/SoCRelative"
@@ -127,7 +164,9 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Usage Time"
             android:id="@+id/upTimeIntro"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/upTime"
@@ -138,13 +177,15 @@
             android:text="upTime"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="italic" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffffff"
+        android:background="@drawable/maintiles"
         android:layout_below="@+id/upTimeRelative"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -159,7 +200,8 @@
             android:text="Time Since Boot"
             android:textSize="25sp"
             android:id="@+id/toTimeIntro"
-            />
+            android:textColor="#ffffffff"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/toTime"
@@ -170,7 +212,9 @@
             android:text="toTime"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="#ffffffff"
+            android:textStyle="italic" />
     </RelativeLayout>
 
         <RelativeLayout
@@ -178,7 +222,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:clickable="false"
-            android:background="#ff1dacff"
+            android:background="@drawable/maintiles"
             android:id="@+id/pressBTN"
             android:layout_below="@+id/toTimeRelative"
             android:layout_centerHorizontal="true">
@@ -191,7 +235,9 @@
                 android:id="@+id/toRAM"
                 android:textSize="25sp"
                 android:layout_below="@+id/toRAMIntro"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffffff"
+                android:textStyle="italic" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -200,13 +246,15 @@
                 android:text="Total RAM"
                 android:id="@+id/toRAMIntro"
                 android:textSize="25sp"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffffff"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffffff"
+            android:background="@drawable/maintiles"
             android:layout_below="@+id/usRAMRelative"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -220,7 +268,9 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="IMEI"
                 android:textSize="25sp"
-                android:id="@+id/imeiIntro"/>
+                android:id="@+id/imeiIntro"
+                android:textColor="#ffffffff"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -229,7 +279,9 @@
                 android:textSize="25sp"
                 android:text="imei"
                 android:layout_centerHorizontal="true"
-                android:id="@+id/imeiNumber"/>
+                android:id="@+id/imeiNumber"
+                android:textColor="#ffffffff"
+                android:textStyle="italic" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -237,7 +289,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:clickable="false"
-            android:background="#ff1dacff"
+            android:background="@drawable/maintiles"
             android:id="@+id/usRAMRelative"
             android:layout_below="@+id/avRAMRelative"
             android:layout_centerHorizontal="true">
@@ -250,7 +302,9 @@
                 android:id="@+id/usRAM"
                 android:textSize="25sp"
                 android:layout_below="@+id/usRAMIntro"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffffff"
+                android:textStyle="italic" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -259,12 +313,14 @@
                 android:text="Used RAM"
                 android:id="@+id/usRAMIntro"
                 android:textSize="25sp"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffffff"
+                android:textStyle="bold" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffffff"
+            android:background="@drawable/maintiles"
             android:layout_below="@+id/pressBTN"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -280,7 +336,9 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="25sp"
                 android:text="avRAM"
-                android:id="@+id/avRAM"/>
+                android:id="@+id/avRAM"
+                android:textColor="#ffffffff"
+                android:textStyle="italic" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -288,14 +346,16 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Available RAM"
                 android:textSize="25sp"
-                android:id="@id/avRAMIntro"/>
+                android:id="@id/avRAMIntro"
+                android:textColor="#ffffffff"
+                android:textStyle="bold" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:clickable="false"
-            android:background="#ff1dacff"
+            android:background="@drawable/maintiles"
             android:id="@+id/tointRelative"
             android:layout_below="@+id/imeiRAMRelative"
             android:layout_centerHorizontal="true">
@@ -308,7 +368,9 @@
                 android:id="@+id/intStorage"
                 android:textSize="25sp"
                 android:layout_below="@+id/intStorageIntro"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffffff"
+                android:textStyle="italic" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -317,12 +379,14 @@
                 android:text="Total Internal Storage"
                 android:id="@+id/intStorageIntro"
                 android:textSize="25sp"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffffff"
+                android:textStyle="bold" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffffff"
+            android:background="@drawable/maintiles"
             android:layout_below="@+id/tointRelative"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -336,7 +400,9 @@
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Available Internal Storage"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textColor="#ffffffff"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -345,7 +411,9 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="25sp"
                 android:text="avIntStorage"
-                android:id="@+id/avInt"/>
+                android:id="@+id/avInt"
+                android:textColor="#ffffffff"
+                android:textStyle="italic" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -440,10 +508,7 @@
 
 
     </RelativeLayout>
-        <com.startapp.android.publish.banner.Banner
-            android:id="@+id/startAppBanner4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
     </LinearLayout>
     </RelativeLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

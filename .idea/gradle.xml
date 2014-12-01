@@ -5,6 +5,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -13,8 +14,6 @@
         </option>
       </GradleProjectSettings>
     </option>
-    <option name="gradleVmOptions" value="-XX:MaxHeapSize=256m -Xmx256m" />
-    <option name="offlineWork" value="true" />
   </component>
 </project>
 

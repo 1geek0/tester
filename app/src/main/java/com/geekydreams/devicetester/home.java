@@ -1,3 +1,22 @@
+//Copyright (c) 2014 Nilay Kulkarni
+/*
+ * This file is part of Know Your Droid.
+ *
+ *     Know Your Droid is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Know Your Droid is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with Know Your Droid.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
 package com.geekydreams.devicetester;
 
 
@@ -7,9 +26,10 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageDataObserver;
 import android.content.pm.PackageManager;
-import android.net.TrafficStats;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,33 +42,53 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.startapp.android.publish.SDKAdPreferences;
-import com.startapp.android.publish.StartAppAd;
-import com.startapp.android.publish.StartAppSDK;
 
-import java.io.File;
+import com.appfireworks.android.listener.AppModuleListener;
+import com.appfireworks.android.track.AppTracker;
+import com.ewefkqqipbhzwxfqgmrm.AdController;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
 public class home extends Activity {
 
-    private StartAppAd startAppAd = new StartAppAd(this);
     Account[] accounts;
     private static final long CACHE_APP = Long.MAX_VALUE;
     private CachePackageDataObserver mClearCacheObserver;
 
 
+    private AdController banner;
+    private Activity act = this;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StartAppSDK.init(this, "105206822", "211783112", new SDKAdPreferences().setAge(10));
         setContentView(R.layout.activity_home);
+        if(savedInstanceState == null) {
+            initializeLeadBolt();
+        }
 
-        StartAppAd.showSlider(this);
-        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+
+        Button ng = (Button) findViewById(R.id.bg);
+
+
+
         accounts = AccountManager.get(this).getAccountsByType("com.google");
+
+        Typeface spaceage = Typeface.createFromAsset(getAssets(), "fonts/s.ttf");
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        ng.setTypeface(spaceage);
+        ng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Background Apps Killed", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
 
         //Package Manager Stuff
 
@@ -56,13 +96,14 @@ public class home extends Activity {
         Button bkpButton = (Button) findViewById(R.id.bkp);
         Button cCacheButton = (Button) findViewById(R.id.cCache);
         TextView info = (TextView) findViewById(R.id.info);
-        TextView btnPress = (TextView) findViewById(R.id.pressbtn);
+        TextView upGrade = (TextView) findViewById(R.id.upGrade);
+        TextView xda = (TextView) findViewById(R.id.xdalink);
 
-
-
-
-
-
+        xda.setTypeface(spaceage);
+        info.setTypeface(spaceage);
+        upGrade.setTypeface(spaceage);
+        bkpButton.setTypeface(spaceage);
+        cCacheButton.setTypeface(spaceage);
 
 
         cCacheButton.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +116,7 @@ public class home extends Activity {
 
         //Handling The Button Task
         Button getInfo = (Button) findViewById(R.id.getInfo);
+        getInfo.setTypeface(spaceage);
         getInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,21 +177,7 @@ public class home extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-    @Override
-    public void onResume() {
-        super.onResume();
-        startAppAd.onResume();
-    }
-    @Override
-    public void onPause() {
-        super.onPause();
-        startAppAd.onPause();
-    }
-    @Override
-    public void onBackPressed() {
-        startAppAd.onBackPressed();
-        super.onBackPressed();
-    }
+
 
 
     void clearCache()
@@ -212,4 +240,50 @@ public class home extends Activity {
         }//End of onRemoveCompleted() method
     }//End of CachePackageDataObserver instance inner class
 
+    private void initializeLeadBolt() {
+        AppTracker.startSession(act, "bFWFUgPQVIczqbYg9hcQwomKMK5Jcgy2", new AppModuleListener() {
+            @Override
+            public void onModuleLoaded() {
+                loadDisplayAd();
+            }
+
+            @Override
+            public void onModuleFailed() {
+                loadDisplayAd();
+            }
+
+            @Override
+            public void onModuleClosed() {
+            }
+
+            @Override
+            public void onModuleCached() {
+            }
+        });
+    }
+
+    private void loadDisplayAd() {
+        // use this else where in your app to load a Leadbolt Interstitial Ad
+        banner = new AdController(act, "434861798");
+        banner.loadAd();
+    }
+
+    public void onPause() {
+        super.onPause();
+        if (!isFinishing()) {
+            AppTracker.pause(getApplicationContext());
+        }
+    }
+
+    public void onResume() {
+        super.onResume();
+        AppTracker.resume(getApplicationContext());
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        if(isFinishing()) {
+            AppTracker.closeSession(getApplicationContext(), true);
+        }
+    }
 }
