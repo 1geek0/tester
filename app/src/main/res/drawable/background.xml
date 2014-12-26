@@ -19,10 +19,12 @@
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-
     <gradient
         android:angle="315"
-        android:endColor="#006668"
-        android:startColor="#5BCDC7"
+        android:centerX="0.3"
+        android:type="linear"
+        android:centerColor="#ffff4b35"
+        android:endColor="#ff9f251d"
+        android:startColor="#ff9f2a1e"
         />
 </shape>

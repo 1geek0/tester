@@ -21,6 +21,7 @@ package com.geekydreams.devicetester;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -33,10 +34,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.TextView;
-import com.appfireworks.android.listener.AppModuleListener;
-import com.appfireworks.android.track.AppTracker;
-import com.ewefkqqipbhzwxfqgmrm.AdController;
+
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
@@ -49,17 +51,7 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
-            ViewConfiguration config = ViewConfiguration.get(this);
-            Field menuKeyField = ViewConfiguration.class
-                    .getDeclaredField("sHasPermanentMenuKey");
-            if (menuKeyField != null) {
-                menuKeyField.setAccessible(true);
-                menuKeyField.setBoolean(config, false);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
         //Declaration & Initialisation of all the Textviews in the layout
         TextView osView = (TextView) findViewById(R.id.os);
@@ -69,17 +61,29 @@ public class MainActivity extends Activity {
         TextView imeiView = (TextView) findViewById(R.id.imeiNumber);
         TextView avIntStorageView = (TextView) findViewById(R.id.avInt);
         TextView intStorageView = (TextView) findViewById(R.id.intStorage);
-        TextView toExtView = (TextView) findViewById(R.id.extStorage);
-        TextView avExtView = (TextView) findViewById(R.id.avExtStorage);
-        TextView phNumberView = (TextView) findViewById(R.id.phNumber);
+        TextView maxCPUView = (TextView) findViewById(R.id.maxCPU);
         final TextView usRAMView = (TextView) findViewById(R.id.usRAM);
         final TextView avRAMView = (TextView) findViewById(R.id.avRAM);
+
+
 
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String imei = telephonyManager.getDeviceId();
         imeiView.setText(imei);
-
-
+        String cpuMaxFreq = "";
+        RandomAccessFile reader = null;
+        try {
+            reader = new RandomAccessFile("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq", "r");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            cpuMaxFreq = reader.readLine();
+            reader.close();
+            maxCPUView.setText(cpuMaxFreq);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         intStorageView.setText(getTotalInternalMemorySize());
@@ -142,6 +146,7 @@ public class MainActivity extends Activity {
 
                 toTimeView.setText(toTimehms);
                 upTimeView.setText(upTimehms);
+                
 
                 // Now About The RAM Stuff
 
@@ -266,4 +271,3 @@ public class MainActivity extends Activity {
     }
 
 }
-

@@ -20,7 +20,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.geekydreams.devicetester.MainActivity"
     android:outlineProvider="background"
     android:background="@drawable/background">
@@ -45,16 +45,18 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        style="@style/AppTheme">
+        android:layout_marginBottom="50dp">
     <RelativeLayout
+        android:background="@drawable/maintiles"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/maintiles"
         android:id="@+id/brandRelative"
-        android:elevation="10dp">
+        android:elevation="10dp"
+        android:theme="@style/Base.V21.Theme.AppCompat">
 
         <TextView
+            android:typeface="monospace"
             android:id="@+id/brandName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,10 +66,10 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
-            android:textStyle="italic" />
+            android:textColor="#000000"/>
 
         <TextView
+            android:typeface="monospace"
             android:id="@+id/brandIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,7 +77,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Device Brand"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
+            android:textColor="#000000"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -85,9 +87,11 @@
         android:background="@drawable/maintiles"
         android:id="@+id/osRelative"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/brandRelative">
+        android:layout_below="@+id/brandRelative"
+        android:theme="@style/Base.V21.Theme.AppCompat">
 
         <TextView
+            android:typeface="monospace"
             android:id="@+id/os"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,10 +101,10 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
-            android:textStyle="italic" />
+            android:textColor="#000000"/>
 
         <TextView
+            android:typeface="monospace"
             android:id="@+id/osIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,7 +112,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Android Version"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
+            android:textColor="#000000"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -120,7 +124,8 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/osRelative"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:theme="@style/Base.V21.Theme.AppCompat">
 
         <TextView
             android:id="@+id/SoC"
@@ -132,10 +137,11 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
-            android:textStyle="italic" />
+            android:textColor="#000000"
+            android:typeface="monospace"/>
 
         <TextView
+            android:typeface="monospace"
             android:id="@+id/SoCIntro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -143,7 +149,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Processor"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
+            android:textColor="#000000"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -155,9 +161,11 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/SoCRelative"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:theme="@style/Base.V21.Theme.AppCompat">
 
         <TextView
+            android:typeface="monospace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -165,7 +173,7 @@
             android:text="Usage Time"
             android:id="@+id/upTimeIntro"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <TextView
@@ -178,8 +186,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
-            android:textStyle="italic" />
+            android:textColor="#000000"
+            android:typeface="monospace"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -190,9 +198,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
-        android:id="@+id/toTimeRelative">
+        android:id="@+id/toTimeRelative"
+        android:theme="@style/Base.V21.Theme.AppCompat">
 
         <TextView
+            android:typeface="monospace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -200,7 +210,7 @@
             android:text="Time Since Boot"
             android:textSize="25sp"
             android:id="@+id/toTimeIntro"
-            android:textColor="#ffffffff"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
         <TextView
@@ -213,8 +223,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="visible"
             android:textSize="25sp"
-            android:textColor="#ffffffff"
-            android:textStyle="italic" />
+            android:textColor="#000000"
+            android:typeface="monospace"/>
     </RelativeLayout>
 
         <RelativeLayout
@@ -225,9 +235,11 @@
             android:background="@drawable/maintiles"
             android:id="@+id/pressBTN"
             android:layout_below="@+id/toTimeRelative"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:theme="@style/Base.V21.Theme.AppCompat">
 
             <TextView
+                android:typeface="monospace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -236,10 +248,10 @@
                 android:textSize="25sp"
                 android:layout_below="@+id/toRAMIntro"
                 android:layout_centerHorizontal="true"
-                android:textColor="#ffffffff"
-                android:textStyle="italic" />
+                android:textColor="#000000"/>
 
             <TextView
+                android:typeface="monospace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -247,8 +259,7 @@
                 android:id="@+id/toRAMIntro"
                 android:textSize="25sp"
                 android:layout_centerHorizontal="true"
-                android:textColor="#ffffffff"
-                android:textStyle="bold" />
+                android:textColor="#000000"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -262,6 +273,7 @@
             android:id="@+id/imeiRAMRelative">
 
             <TextView
+                android:typeface="monospace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -269,7 +281,7 @@
                 android:text="IMEI"
                 android:textSize="25sp"
                 android:id="@+id/imeiIntro"
-                android:textColor="#ffffffff"
+                android:textColor="#000000"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
@@ -280,8 +292,8 @@
                 android:text="imei"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/imeiNumber"
-                android:textColor="#ffffffff"
-                android:textStyle="italic" />
+                android:textColor="#000000"
+                android:typeface="monospace"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -303,10 +315,11 @@
                 android:textSize="25sp"
                 android:layout_below="@+id/usRAMIntro"
                 android:layout_centerHorizontal="true"
-                android:textColor="#ffffffff"
-                android:textStyle="italic" />
+                android:textColor="#000000"
+                android:typeface="monospace" />
 
             <TextView
+                android:typeface="monospace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -314,7 +327,7 @@
                 android:id="@+id/usRAMIntro"
                 android:textSize="25sp"
                 android:layout_centerHorizontal="true"
-                android:textColor="#ffffffff"
+                android:textColor="#000000"
                 android:textStyle="bold" />
         </RelativeLayout>
         <RelativeLayout
@@ -325,7 +338,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="30dp"
-            android:id="@+id/avRAMRelative">
+            android:id="@+id/avRAMRelative"
+            android:theme="@style/Base.V21.Theme.AppCompat">
 
 
             <TextView
@@ -337,9 +351,10 @@
                 android:textSize="25sp"
                 android:text="avRAM"
                 android:id="@+id/avRAM"
-                android:textColor="#ffffffff"
-                android:textStyle="italic" />
+                android:textColor="#000000"
+                android:typeface="monospace" />
             <TextView
+                android:typeface="monospace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -347,7 +362,7 @@
                 android:text="Available RAM"
                 android:textSize="25sp"
                 android:id="@id/avRAMIntro"
-                android:textColor="#ffffffff"
+                android:textColor="#000000"
                 android:textStyle="bold" />
         </RelativeLayout>
         <RelativeLayout
@@ -358,7 +373,8 @@
             android:background="@drawable/maintiles"
             android:id="@+id/tointRelative"
             android:layout_below="@+id/imeiRAMRelative"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:theme="@style/Base.V21.Theme.AppCompat">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -369,10 +385,11 @@
                 android:textSize="25sp"
                 android:layout_below="@+id/intStorageIntro"
                 android:layout_centerHorizontal="true"
-                android:textColor="#ffffffff"
-                android:textStyle="italic" />
+                android:textColor="#000000"
+                android:typeface="monospace" />
 
             <TextView
+                android:typeface="monospace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -380,7 +397,7 @@
                 android:id="@+id/intStorageIntro"
                 android:textSize="25sp"
                 android:layout_centerHorizontal="true"
-                android:textColor="#ffffffff"
+                android:textColor="#000000"
                 android:textStyle="bold" />
         </RelativeLayout>
         <RelativeLayout
@@ -391,9 +408,11 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="30dp"
-            android:id="@+id/avIntRelative">
+            android:id="@+id/avIntRelative"
+            android:theme="@style/Base.V21.Theme.AppCompat">
 
             <TextView
+                android:typeface="monospace"
                 android:id="@+id/avIntIntro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -401,7 +420,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Available Internal Storage"
                 android:textSize="25sp"
-                android:textColor="#ffffffff"
+                android:textColor="#000000"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
@@ -412,99 +431,42 @@
                 android:textSize="25sp"
                 android:text="avIntStorage"
                 android:id="@+id/avInt"
-                android:textColor="#ffffffff"
-                android:textStyle="italic" />
+                android:textColor="#000000"
+                android:typeface="monospace" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:clickable="false"
-            android:background="#ff1dacff"
-            android:id="@+id/toexRelative"
+            android:background="@drawable/maintiles"
             android:layout_below="@+id/avIntRelative"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="extStorage"
-                android:id="@+id/extStorage"
-                android:textSize="25sp"
-                android:layout_below="@+id/extStorageIntro"
-                android:layout_centerHorizontal="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Total External Storage"
-                android:id="@+id/extStorageIntro"
-                android:textSize="25sp"
-                android:layout_centerHorizontal="true" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffffff"
-            android:layout_below="@+id/toexRelative"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="30dp"
-            android:id="@+id/avExtRelative"
-            android:visibility="gone">
-
+            android:id="@+id/maxCPURelative"
+            android:theme="@style/Base.V21.Theme.AppCompat">
             <TextView
-                android:id="@+id/avExtIntro"
+                android:typeface="monospace"
+                android:id="@+id/maxCPUIntro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Available External Storage"
-                android:textSize="25sp" />
+                android:text="Maximum CPU Speed"
+                android:textSize="25sp"
+                android:textColor="#000000"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/avExtIntro"
+                android:layout_below="@+id/maxCPUIntro"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="25sp"
-                android:text="avExtStorage"
-                android:id="@+id/avExtStorage"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:clickable="false"
-            android:background="#ff1dacff"
-            android:id="@+id/phNumberRelative"
-            android:layout_below="@+id/avExtRelative"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="phNumber"
-                android:id="@+id/phNumber"
-                android:textSize="25sp"
-                android:layout_below="@+id/phNumberIntro"
-                android:layout_centerHorizontal="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Phone Number"
-                android:id="@+id/phNumberIntro"
-                android:textSize="25sp"
-                android:layout_centerHorizontal="true" />
-        </RelativeLayout>
-
+                android:text="maxCPUFreq"
+                android:id="@+id/maxCPU"
+                android:textColor="#000000"
+                android:typeface="monospace" />
+            </RelativeLayout>
 
 
     </RelativeLayout>

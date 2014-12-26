@@ -1,4 +1,4 @@
-<!--Copyright (c) 2014 Nilay Kulkarni-->
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ This file is part of Know Your Droid.
   ~
@@ -16,14 +16,10 @@
   ~     along with Know Your Droid.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context="com.geekydreams.devicetester.splash">
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:src="@drawable/gdlogo"/>
-
-</RelativeLayout>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#0B5C9E"
+        android:endColor="#05A9DC"
+        android:angle="135"
+        />
+</shape>

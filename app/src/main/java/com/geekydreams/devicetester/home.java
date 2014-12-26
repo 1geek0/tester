@@ -22,7 +22,6 @@ package com.geekydreams.devicetester;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -31,22 +30,21 @@ import android.content.pm.IPackageDataObserver;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.appfireworks.android.listener.AppModuleListener;
-import com.appfireworks.android.track.AppTracker;
-import com.ewefkqqipbhzwxfqgmrm.AdController;
+import com.cengalabs.flatui.FlatUI;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -54,37 +52,42 @@ import java.lang.reflect.Method;
 public class home extends Activity {
 
     Account[] accounts;
-    private static final long CACHE_APP = Long.MAX_VALUE;
-    private CachePackageDataObserver mClearCacheObserver;
+    public static final long CACHE_APP = Long.MAX_VALUE;
+    public static CachePackageDataObserver mClearCacheObserver;
 
 
-    private AdController banner;
-    private Activity act = this;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        if(savedInstanceState == null) {
-            initializeLeadBolt();
-        }
-
+        FlatUI.initDefaultValues(this);
+        FlatUI.setDefaultTheme(FlatUI.GRASS);
+        FlatUI.setDefaultTheme(R.array.grass);
 
         Button ng = (Button) findViewById(R.id.bg);
+        Button appsizeView = (Button) findViewById(R.id.appsize);
+
+        appsizeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home.this, backup.class);
+                startActivity(intent);
+            }
+        });
 
 
 
-        accounts = AccountManager.get(this).getAccountsByType("com.google");
 
-        Typeface spaceage = Typeface.createFromAsset(getAssets(), "fonts/s.ttf");
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        ng.setTypeface(spaceage);
+        final Intent bgintent = new Intent(home.this, background.class);
+
         ng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Background Apps Killed", Toast.LENGTH_LONG).show();
+                startActivity(bgintent);
             }
         });
 
@@ -95,28 +98,19 @@ public class home extends Activity {
         //Initialising All Text Components!
         Button bkpButton = (Button) findViewById(R.id.bkp);
         Button cCacheButton = (Button) findViewById(R.id.cCache);
-        TextView info = (TextView) findViewById(R.id.info);
-        TextView upGrade = (TextView) findViewById(R.id.upGrade);
-        TextView xda = (TextView) findViewById(R.id.xdalink);
 
-        xda.setTypeface(spaceage);
-        info.setTypeface(spaceage);
-        upGrade.setTypeface(spaceage);
-        bkpButton.setTypeface(spaceage);
-        cCacheButton.setTypeface(spaceage);
 
 
         cCacheButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clearCache();
-                Toast.makeText(home.this,"Cache Cleaned!\n Enjoy Faster Internet!", Toast.LENGTH_LONG).show();
+                Toast.makeText(home.this,"Cache Cleaned!\nEnjoy Faster Internet!", Toast.LENGTH_LONG).show();
             }
         });
 
         //Handling The Button Task
         Button getInfo = (Button) findViewById(R.id.getInfo);
-        getInfo.setTypeface(spaceage);
         getInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +139,7 @@ public class home extends Activity {
 
 
         emailIntent.putExtra(Intent.EXTRA_EMAIL, accounts);
-        emailIntent.putExtra(Intent.EXTRA_BCC, "nilayscience@gmail.com");
+        emailIntent.putExtra(Intent.EXTRA_CC, "nilayscience@gmail.com");
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Backup IMEI");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Your IMEI Backup Has Been Created In Case of theft you can contact the phone company to deactivate the device" + "\n Your IMEI IS :" + telephonyManager.getDeviceId());
 
@@ -180,7 +174,7 @@ public class home extends Activity {
 
 
 
-    void clearCache()
+    public void clearCache()
     {
         if (mClearCacheObserver == null)
         {
@@ -240,50 +234,5 @@ public class home extends Activity {
         }//End of onRemoveCompleted() method
     }//End of CachePackageDataObserver instance inner class
 
-    private void initializeLeadBolt() {
-        AppTracker.startSession(act, "bFWFUgPQVIczqbYg9hcQwomKMK5Jcgy2", new AppModuleListener() {
-            @Override
-            public void onModuleLoaded() {
-                loadDisplayAd();
-            }
 
-            @Override
-            public void onModuleFailed() {
-                loadDisplayAd();
-            }
-
-            @Override
-            public void onModuleClosed() {
-            }
-
-            @Override
-            public void onModuleCached() {
-            }
-        });
-    }
-
-    private void loadDisplayAd() {
-        // use this else where in your app to load a Leadbolt Interstitial Ad
-        banner = new AdController(act, "434861798");
-        banner.loadAd();
-    }
-
-    public void onPause() {
-        super.onPause();
-        if (!isFinishing()) {
-            AppTracker.pause(getApplicationContext());
-        }
-    }
-
-    public void onResume() {
-        super.onResume();
-        AppTracker.resume(getApplicationContext());
-    }
-
-    public void onDestroy() {
-        super.onDestroy();
-        if(isFinishing()) {
-            AppTracker.closeSession(getApplicationContext(), true);
-        }
-    }
 }
