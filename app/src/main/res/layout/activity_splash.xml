@@ -20,7 +20,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.geekydreams.devicetester.splash">
+    tools:context="com.geekydreams.devicetester.splash"
+    android:background="#000000">
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
