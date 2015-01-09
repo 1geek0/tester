@@ -17,20 +17,19 @@
   ~     along with Know Your Droid.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:flatui="http://schemas.android.com/apk/res-auto"
-    flatui:fl_theme="@array/grassn"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background"
+    android:background="#ffffff"
     tools:context=".home">
 
 
     <ScrollView
+        android:id="@+id/scview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -44,89 +43,69 @@
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="450sp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="50sp">
 
-
-                    <com.cengalabs.flatui.views.FlatButton
-                        flatui:fl_textAppearance="fl_dark"
-                        flatui:fl_blockButtonEffectHeight="5sp"
-                        flatui:fl_theme="@array/grassn"
+                    <Button
+                        style="@style/Widget.AppCompat.ActionButton"
+                        android:layout_centerHorizontal="true"
                         android:id="@+id/getInfo"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"                        android:layout_centerHorizontal="true"
-                        android:paddingLeft="20sp"
-                        android:paddingRight="20sp"
+                        android:layout_height="wrap_content"
                         android:text="Get Info"
+                        android:padding="15dp"
                         android:textSize="30sp"
-                        android:textStyle="bold"/>
-                    <com.cengalabs.flatui.views.FlatButton
-                        flatui:fl_blockButtonEffectHeight="5sp"
-                        flatui:fl_theme="@array/grassn"
-                        flatui:fl_textAppearance="fl_dark"
-                        android:id="@+id/bkp"
+                        android:textStyle="bold"
+                        android:background="@drawable/back"/>
+                    <Button
                         style="@style/Widget.AppCompat.ActionButton"
+                        android:id="@+id/bkp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/getInfo"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="30dp"
-                        android:background="@drawable/shape"
+                        android:background="@drawable/back"
                         android:elevation="19sp"
-                        android:paddingLeft="20sp"
-                        android:paddingRight="20sp"
+                        android:padding="15dp"
                         android:text="Backup IMEI"
-                        android:textColor="#000000"
+                        android:textColor="#ffffff"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
-                    <com.cengalabs.flatui.views.FlatButton
-                        flatui:fl_textAppearance="fl_dark"
-                        flatui:fl_blockButtonEffectHeight="5sp"
-                        flatui:fl_theme="@array/grassn"
-                        android:id="@+id/cCache"
+                    <Button
                         style="@style/Widget.AppCompat.ActionButton"
+                        android:id="@+id/cCache"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/bkp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="30dp"
-                        android:background="@drawable/shape"
+                        android:background="@drawable/back"
                         android:elevation="10dp"
-                        android:paddingLeft="20sp"
-                        android:paddingRight="20sp"
+                        android:padding="15dp"
                         android:text="Clear Cache"
-                        android:textColor="#000000"
+                        android:textColor="#ffffff"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
-                    <com.cengalabs.flatui.views.FlatButton
-                        flatui:fl_textAppearance="fl_dark"
-                        flatui:fl_blockButtonEffectHeight="5sp"
-                        flatui:fl_theme="@array/grassn"
+                    <Button
                         android:id="@+id/bg"
                         style="@style/Widget.AppCompat.ActionButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/cCache"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
                         android:layout_marginTop="30dp"
-                        android:background="@drawable/shape"
+                        android:background="@drawable/back"
                         android:elevation="10dp"
-                        android:paddingLeft="20sp"
-                        android:paddingRight="20sp"
-                        android:paddingTop="10sp"
+                        android:padding="15dp"
                         android:text="Task Manager"
-                        android:textColor="#000000"
+                        android:textColor="#ffffff"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
-                    <com.cengalabs.flatui.views.FlatButton
-                        flatui:fl_textAppearance="fl_dark"
-                        flatui:fl_blockButtonEffectHeight="5sp"
-                        flatui:fl_theme="@array/grassn"
+                    <Button
                         android:id="@+id/appsize"
                         style="@style/Widget.AppCompat.ActionButton"
                         android:layout_width="wrap_content"
@@ -134,12 +113,11 @@
                         android:layout_below="@id/bg"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="30dp"
-                        android:background="@drawable/shape"
+                        android:background="@drawable/back"
                         android:elevation="10dp"
-                        android:paddingLeft="20sp"
-                        android:paddingRight="20sp"
+                        android:padding="15dp"
                         android:text="App Backup"
-                        android:textColor="#000000"
+                        android:textColor="#ffffff"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
@@ -149,4 +127,4 @@
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+</RelativeLayout>

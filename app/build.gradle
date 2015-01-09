@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 dependencies {
     compile 'com.android.support:appcompat-v7:21.0.2'
-    compile 'com.github.eluleci:flatui:3.0.0'
 }
 android {
     signingConfigs {
@@ -19,14 +18,14 @@ android {
         applicationId "com.geekydreams.devicetester"
         minSdkVersion 10
         targetSdkVersion 21
-        versionCode 6
-        versionName "1.6"
+        versionCode 7
+        versionName "1.7"
         signingConfig signingConfigs.config
     }
     buildTypes {
         release {
             minifyEnabled true
-            proguardFile('proguard-rules.pro')
+            proguardFile getDefaultProguardFile('proguard-android.txt')
         }
     }
     sourceSets {

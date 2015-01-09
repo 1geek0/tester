@@ -42,7 +42,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.cengalabs.flatui.FlatUI;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -61,9 +60,6 @@ public class home extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        FlatUI.initDefaultValues(this);
-        FlatUI.setDefaultTheme(FlatUI.GRASS);
-        FlatUI.setDefaultTheme(R.array.grass);
 
         Button ng = (Button) findViewById(R.id.bg);
         Button appsizeView = (Button) findViewById(R.id.appsize);
