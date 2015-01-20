@@ -10,5 +10,6 @@
     <string name="title_activity_backup">Backup</string>
     <string name="title_activity_background">Background Apps</string>
     <string name="clear">Clear Cache</string>
+    <string name="title_activity_wmanager">wmanager</string>
 
 </resources>

@@ -25,12 +25,14 @@ import android.app.ActivityManager.RunningTaskInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class background extends Activity {
+public class background extends ActionBarActivity {
 
     ArrayList<AppStructure> appStructurelist = new ArrayList<AppStructure>();
 
@@ -43,6 +45,9 @@ public class background extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_background);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
+        setSupportActionBar(toolbar);
         listView = (ListView) findViewById(R.id.appList);
         killApps = (Button)findViewById(R.id.kilBtn);
         activityManager = (ActivityManager) this
@@ -63,7 +68,6 @@ public class background extends Activity {
                 e.printStackTrace();
             }
             appStructurelist.add(appStructure);
-
         }
 
         killApps.setOnClickListener(new OnClickListener() {
@@ -71,12 +75,13 @@ public class background extends Activity {
             @Override
             public void onClick(View arg0) {
                 for (int i = 0; i < runningAPps.size(); i++) {
-                    if(!runningAPps.get(i).topActivity.getPackageName().equalsIgnoreCase("com.example.retriveinstallapps")){
+                    if (!runningAPps.get(i).topActivity.getPackageName().equalsIgnoreCase("com.geekydreams.devicetester")) {
+                        //noinspection deprecation
+                        activityManager.restartPackage(runningAPps.get(i).topActivity.getPackageName());
                         activityManager.killBackgroundProcesses(runningAPps.get(i).topActivity.getPackageName());
-
                     }
                     try {
-                        appStructure.appName =(String) getPackageManager().getApplicationLabel(getPackageManager()
+                        appStructure.appName = (String) getPackageManager().getApplicationLabel(getPackageManager()
                                 .getApplicationInfo(runningAPps.get(i).topActivity.getPackageName(),
                                         PackageManager.GET_META_DATA));
                         appStructure.appIcons = getPackageManager().getApplicationIcon(runningAPps.get(i).topActivity.getPackageName());
@@ -85,7 +90,6 @@ public class background extends Activity {
                     }
                     appStructurelist.clear();
                     appStructurelist.add(appStructure);
-
                 }
 
                 updateAdpater();

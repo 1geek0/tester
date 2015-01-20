@@ -31,6 +31,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
@@ -48,7 +50,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
-public class home extends Activity {
+public class home extends ActionBarActivity {
 
     Account[] accounts;
     public static final long CACHE_APP = Long.MAX_VALUE;
@@ -60,6 +62,9 @@ public class home extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolhome);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
+        setSupportActionBar(toolbar);
 
         Button ng = (Button) findViewById(R.id.bg);
         Button appsizeView = (Button) findViewById(R.id.appsize);
@@ -71,9 +76,6 @@ public class home extends Activity {
                 startActivity(intent);
             }
         });
-
-
-
 
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -88,7 +90,6 @@ public class home extends Activity {
         });
 
 
-
         //Package Manager Stuff
 
         //Initialising All Text Components!
@@ -96,12 +97,11 @@ public class home extends Activity {
         Button cCacheButton = (Button) findViewById(R.id.cCache);
 
 
-
         cCacheButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clearCache();
-                Toast.makeText(home.this,"Cache Cleaned!\nEnjoy Faster Internet!", Toast.LENGTH_LONG).show();
+                Toast.makeText(home.this, "Cache Cleaned!\nEnjoy Faster Internet!", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -126,9 +126,6 @@ public class home extends Activity {
     private void sendemail() {
         Log.i("Send email", "");
         TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-
-        String[] TO = {"amrood.admin@gmail.com"};
-        String[] CC = {"mcmohd@gmail.com"};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");

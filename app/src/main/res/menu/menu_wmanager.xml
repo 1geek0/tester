@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2014 Nilay Kulkarni -->
 <!--
   ~ This file is part of Know Your Droid.
   ~
@@ -17,14 +15,10 @@
   ~     along with Know Your Droid.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <gradient
-        android:angle="315"
-        android:centerX="0.3"
-        android:type="linear"
-        android:centerColor="#ffff4b35"
-        android:endColor="#ff9f251d"
-        android:startColor="#ff9f2a1e"
-        />
-</shape>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.geekydreams.devicetester.wmanager">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>

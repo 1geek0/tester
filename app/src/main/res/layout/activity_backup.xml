@@ -22,8 +22,12 @@
     android:background="#ffffff"
     tools:context="com.geekydreams.devicetester.backup">
 
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolup"/>
 
     <ListView
+        android:layout_below="@id/toolup"
         android:id="@+id/appList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

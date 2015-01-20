@@ -28,6 +28,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.StatFs;
 import android.os.SystemClock;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,7 +45,7 @@ import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
 
 
 
@@ -51,6 +53,9 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolmain);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
+        setSupportActionBar(toolbar);
 
 
         //Declaration & Initialisation of all the Textviews in the layout

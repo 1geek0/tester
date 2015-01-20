@@ -17,27 +17,12 @@
   -->
 
 <resources>
-    <!-- grass -->
-    <color name="grass_darker">#124c38</color>
-    <color name="grass_dark">#1e7d5b</color>
-    <color name="grass_primary">#2ab081</color>
-    <color name="grass_light">#a8e3ce</color>
-    <integer-array name="grassn">
-        <item>@color/grass_darker</item>
-        <item>@color/grass_dark</item>
-        <item>@color/grass_primary</item>
-        <item>@color/grass_light</item>
-    </integer-array>
-
-    <!-- sand -->
-    <color name="sand_darker">#ad843d</color>
-    <color name="sand_dark">#d4a14a</color>
-    <color name="sand_primary">#fbbf58</color>
-    <color name="sand_light">#fae8c8</color>
-    <integer-array name="skyn">
-        <item>@color/sand_darker</item>
-        <item>@color/sand_dark</item>
-        <item>@color/sand_primary</item>
-        <item>@color/sand_light</item>
-    </integer-array>
+    <color name="primary">#009688</color>
+    <color name="primary_dark">#004d40</color>
+    <color name="primary_light">#B2DFDB</color>
+    <color name="accent">#00897b</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
 </resources>

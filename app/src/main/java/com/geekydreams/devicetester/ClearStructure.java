@@ -20,10 +20,10 @@ package com.geekydreams.devicetester;
 import android.graphics.drawable.Drawable;
 
 /**
- * Created by Nilay on 09/12/2014.
+ * Created by Nilay on 10/01/2015.
  */
-public class BackApkStructure {
-    public Drawable icons;
-    public String apkName;
-    public String apkSourceDir;
+public class ClearStructure {
+    public Drawable icon;
+    public String packageName;
+    public String appName;
 }

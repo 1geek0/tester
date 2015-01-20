@@ -24,6 +24,8 @@ import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +52,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class backup extends Activity {
+public class backup extends ActionBarActivity {
     List appPakageList ;
     Intent intent ;
     BackApkStructure backStr;
@@ -67,6 +69,9 @@ public class backup extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backup);
+        Toolbar toolbar =(Toolbar) findViewById(R.id.toolup);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
+        setSupportActionBar(toolbar);
 
         intent = new Intent(Intent.ACTION_MAIN, null);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -89,8 +94,6 @@ public class backup extends Activity {
 
             }
         });
-
-
     }
 
     public class ListAppAsyncTask extends AsyncTask<String, Void, String> {
@@ -222,7 +225,7 @@ public class backup extends Activity {
             super.onPreExecute();
             progress = new ProgressDialog(backup.this);
             progress.setMessage("Please wait...\nBacking Up Your Apps!");
-            progress.setCancelable(false);
+            progress.setCancelable(true);
             progress.show();
 
         }

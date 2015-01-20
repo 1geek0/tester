@@ -21,469 +21,476 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.geekydreams.devicetester.MainActivity"
+    android:background="#ffffff"
     android:outlineProvider="background"
-    android:background="#ffffff">
+    tools:context="com.geekydreams.devicetester.MainActivity">
 
-    <ScrollView
+
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/toolmain"
+            layout="@layout/toolbar" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        <ScrollView
+            android:layout_below="@id/toolmain"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:layout_marginBottom="50dp">
-    <RelativeLayout
-        android:background="@drawable/back"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/brandRelative"
-        android:elevation="10dp"
-        android:theme="@style/Base.V21.Theme.AppCompat"
-        android:padding="15dp">
-
-        <TextView
-            
-            android:id="@+id/brandName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/brandIntro"
-            android:layout_centerHorizontal="true"
-            android:text="brandNmae"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="visible"
-            android:textSize="25sp"
-            android:textColor="#000000"/>
-
-        <TextView
-            
-            android:id="@+id/brandIntro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Device Brand"
-            android:textSize="25sp"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:padding="15dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/back"
-        android:id="@+id/osRelative"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/brandRelative"
-        android:theme="@style/Base.V21.Theme.AppCompat">
-
-        <TextView
-            
-            android:id="@+id/os"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/osIntro"
-            android:layout_centerHorizontal="true"
-            android:text="os"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="visible"
-            android:textSize="25sp"
-            android:textColor="#000000"/>
-
-        <TextView
-            
-            android:id="@+id/osIntro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Android Version"
-            android:textSize="25sp"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:padding="15dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/back"
-        android:id="@+id/SoCRelative"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/osRelative"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:theme="@style/Base.V21.Theme.AppCompat">
-
-        <TextView
-            android:id="@+id/SoC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/SoCIntro"
-            android:layout_centerHorizontal="true"
-            android:text="SoC"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="visible"
-            android:textSize="25sp"
-            android:textColor="#000000"
-            />
-
-        <TextView
-            
-            android:id="@+id/SoCIntro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Processor"
-            android:textSize="25sp"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:padding="15dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/back"
-        android:id="@+id/upTimeRelative"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/SoCRelative"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:theme="@style/Base.V21.Theme.AppCompat">
-
-        <TextView
-            
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Usage Time"
-            android:id="@+id/upTimeIntro"
-            android:textSize="25sp"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/upTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/upTimeIntro"
-            android:layout_centerHorizontal="true"
-            android:text="upTime"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="visible"
-            android:textSize="25sp"
-            android:textColor="#000000"
-            />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:padding="15dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/back"
-        android:layout_below="@+id/upTimeRelative"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:id="@+id/toTimeRelative"
-        android:theme="@style/Base.V21.Theme.AppCompat">
-
-        <TextView
-            
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Time Since Boot"
-            android:textSize="25sp"
-            android:id="@+id/toTimeIntro"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/toTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toTimeIntro"
-            android:layout_centerHorizontal="true"
-            android:text="toTime"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="visible"
-            android:textSize="25sp"
-            android:textColor="#000000"
-            />
-    </RelativeLayout>
-
-        <RelativeLayout
-            android:padding="15dp"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:clickable="false"
-            android:background="@drawable/back"
-            android:id="@+id/pressBTN"
-            android:layout_below="@+id/toTimeRelative"
-            android:layout_centerHorizontal="true"
-            android:theme="@style/Base.V21.Theme.AppCompat">
+            android:orientation="horizontal">
 
-            <TextView
-                
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="toRAM"
-                android:id="@+id/toRAM"
-                android:textSize="25sp"
-                android:layout_below="@+id/toRAMIntro"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"/>
+                android:layout_marginBottom="50dp"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
 
-            <TextView
-                android:textStyle="bold"
-                
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Total RAM"
-                android:id="@+id/toRAMIntro"
-                android:textSize="25sp"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"/>
-        </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/brandRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/back"
+                    android:elevation="10dp"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
 
-        <RelativeLayout
-            android:padding="15dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back"
-            android:layout_below="@+id/usRAMRelative"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="30dp"
-            android:id="@+id/imeiRAMRelative">
+                    <TextView
 
-            <TextView
-                
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="IMEI"
-                android:textSize="25sp"
-                android:id="@+id/imeiIntro"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imeiIntro"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25sp"
-                android:text="imei"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/imeiNumber"
-                android:textColor="#000000"
-                />
-        </RelativeLayout>
+                        android:id="@+id/brandName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/brandIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="brandNmae"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:visibility="visible" />
 
-        <RelativeLayout
-            android:padding="15dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:clickable="false"
-            android:background="@drawable/back"
-            android:id="@+id/usRAMRelative"
-            android:layout_below="@+id/avRAMRelative"
-            android:layout_centerHorizontal="true">
+                    <TextView
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="usRAM"
-                android:id="@+id/usRAM"
-                android:textSize="25sp"
-                android:layout_below="@+id/usRAMIntro"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                 />
+                        android:id="@+id/brandIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Device Brand"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
 
-            <TextView
-                
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Used RAM"
-                android:id="@+id/usRAMIntro"
-                android:textSize="25sp"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:padding="15dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back"
-            android:layout_below="@+id/pressBTN"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="30dp"
-            android:id="@+id/avRAMRelative"
-            android:theme="@style/Base.V21.Theme.AppCompat">
+                <RelativeLayout
+                    android:id="@+id/osRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/brandRelative"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
+
+                    <TextView
+
+                        android:id="@+id/os"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/osIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="os"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:visibility="visible" />
+
+                    <TextView
+
+                        android:id="@+id/osIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Android Version"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/SoCRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/osRelative"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
+
+                    <TextView
+                        android:id="@+id/SoC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/SoCIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="SoC"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:visibility="visible" />
+
+                    <TextView
+
+                        android:id="@+id/SoCIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Processor"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/upTimeRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/SoCRelative"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
+
+                    <TextView
+
+                        android:id="@+id/upTimeIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Usage Time"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/upTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/upTimeIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="upTime"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/toTimeRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/upTimeRelative"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
+
+                    <TextView
+
+                        android:id="@+id/toTimeIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Time Since Boot"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/toTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toTimeIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="toTime"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/pressBTN"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/toTimeRelative"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:clickable="false"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
+
+                    <TextView
+
+                        android:id="@+id/toRAM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toRAMIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="toRAM"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/toRAMIntro"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Total RAM"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/imeiRAMRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/usRAMRelative"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:padding="15dp">
+
+                    <TextView
+
+                        android:id="@+id/imeiIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="IMEI"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/imeiNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imeiIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="imei"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/usRAMRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avRAMRelative"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:clickable="false"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/usRAM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/usRAMIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="usRAM"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+
+                    <TextView
+
+                        android:id="@+id/usRAMIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Used RAM"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/avRAMRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/pressBTN"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/avRAMIntro"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25sp"
-                android:text="avRAM"
-                android:id="@+id/avRAM"
-                android:textColor="#000000"
-                 />
-            <TextView
-                
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Available RAM"
-                android:textSize="25sp"
-                android:id="@id/avRAMIntro"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:padding="15dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:clickable="false"
-            android:background="@drawable/back"
-            android:id="@+id/tointRelative"
-            android:layout_below="@+id/imeiRAMRelative"
-            android:layout_centerHorizontal="true"
-            android:theme="@style/Base.V21.Theme.AppCompat">
+                    <TextView
+                        android:id="@+id/avRAM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/avRAMIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="avRAM"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="intStorage"
-                android:id="@+id/intStorage"
-                android:textSize="25sp"
-                android:layout_below="@+id/intStorageIntro"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                 />
+                    <TextView
 
-            <TextView
-                
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Total Internal Storage"
-                android:id="@+id/intStorageIntro"
-                android:textSize="25sp"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:padding="15dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back"
-            android:layout_below="@+id/tointRelative"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="30dp"
-            android:id="@+id/avIntRelative"
-            android:theme="@style/Base.V21.Theme.AppCompat">
+                        android:id="@id/avRAMIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Available RAM"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
 
-            <TextView
-                
-                android:id="@+id/avIntIntro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Available Internal Storage"
-                android:textSize="25sp"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/avIntIntro"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25sp"
-                android:text="avIntStorage"
-                android:id="@+id/avInt"
-                android:textColor="#000000"
-                 />
-        </RelativeLayout>
-        <RelativeLayout
-            android:padding="15dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back"
-            android:layout_below="@+id/avIntRelative"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="30dp"
-            android:id="@+id/maxCPURelative"
-            android:theme="@style/Base.V21.Theme.AppCompat">
-            <TextView
-                
-                android:id="@+id/maxCPUIntro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Maximum CPU Speed"
-                android:textSize="25sp"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/maxCPUIntro"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="25sp"
-                android:text="maxCPUFreq"
-                android:id="@+id/maxCPU"
-                android:textColor="#000000"
-                 />
+                <RelativeLayout
+                    android:id="@+id/tointRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imeiRAMRelative"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:clickable="false"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
+
+                    <TextView
+                        android:id="@+id/intStorage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/intStorageIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="intStorage"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+
+                    <TextView
+
+                        android:id="@+id/intStorageIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Total Internal Storage"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/avIntRelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tointRelative"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
+
+                    <TextView
+
+                        android:id="@+id/avIntIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Available Internal Storage"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/avInt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/avIntIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="avIntStorage"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/maxCPURelative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/avIntRelative"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back"
+                    android:padding="15dp"
+                    android:theme="@style/Base.V21.Theme.AppCompat">
+
+                    <TextView
+
+                        android:id="@+id/maxCPUIntro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Maximum CPU Speed"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/maxCPU"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/maxCPUIntro"
+                        android:layout_centerHorizontal="true"
+                        android:text="maxCPUFreq"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </RelativeLayout>
+
+
             </RelativeLayout>
-
-
+        </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
-    </LinearLayout>
-    </RelativeLayout>
-    </ScrollView>
 </LinearLayout>

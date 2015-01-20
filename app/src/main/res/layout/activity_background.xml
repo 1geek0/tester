@@ -24,8 +24,7 @@
 
     <include
         layout="@layout/toolbar"
-        android:id="@+id/tool"
-       />
+        android:id="@+id/tool"/>
     <RelativeLayout
         android:layout_below="@+id/tool"
         android:id="@+id/relay"
@@ -47,12 +46,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:padding="10dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:text="Stop Running Apps"
-            android:background="@drawable/back"
-            android:layout_marginBottom="5dp"/>
+            android:background="@drawable/back"/>
     </RelativeLayout>
     </RelativeLayout>
+
 
 
