@@ -22,4 +22,5 @@
     android:layout_width="match_parent"
     android:minHeight="?attr/actionBarSize"
     android:background="@color/primary_dark"
-    android:titleTextAppearance="@color/icons" />
+    android:titleTextAppearance="@color/icons"
+    android:elevation="@dimen/abc_action_bar_default_height_material"/>
