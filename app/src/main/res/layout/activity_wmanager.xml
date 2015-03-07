@@ -26,7 +26,10 @@
         android:id="@+id/toolWman"
         layout="@layout/toolbar" />
 
+
     <ScrollView
+        android:visibility="visible"
+        android:id="@+id/scrollWmanager"
         android:layout_below="@id/toolWman"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -34,7 +37,11 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
+
+
             <Button
+                android:layout_marginBottom="15dp"
+                android:id="@+id/deleteImg"
                 android:padding="15dp"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -45,17 +52,75 @@
                 android:background="@drawable/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:background="@drawable/back"
+                android:layout_below="@id/deleteImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Img Size"
+                android:textColor="@color/primary_light"
+                android:id="@+id/imgSize"
+                android:padding="16dp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold" />
+
             <Button
+                android:layout_marginBottom="15dp"
+                android:layout_below="@id/imgSize"
                 android:padding="15dp"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:textColor="#ffffff"
-                android:text="Delete All Images"
-                android:layout_marginTop="30dp"
+                android:text="Delete All Videos"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/deleteVid" />
+
+            <TextView
+                android:background="@drawable/back"
+                android:layout_below="@id/deleteVid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Vid Size"
+                android:textColor="@color/primary_light"
+                android:id="@+id/vidSize"
+                android:padding="16dp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_marginBottom="15dp"
+                android:id="@+id/deleteAud"
+                android:layout_below="@id/vidSize"
+                android:padding="15dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text="Delete All Audio"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:background="@drawable/back"
+                android:layout_below="@id/deleteAud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Aud Size"
+                android:textColor="@color/primary_light"
+                android:id="@+id/audSize"
+                android:padding="16dp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold" />
         </RelativeLayout>
 
     </ScrollView>

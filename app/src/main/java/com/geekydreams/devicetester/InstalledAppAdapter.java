@@ -20,7 +20,9 @@ package com.geekydreams.devicetester;
 /**
  * Created by Nilay on 24/12/2014.
  */
+
 import java.util.ArrayList;
+
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,16 +31,18 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class InstalledAppAdapter extends  BaseAdapter {
+public class InstalledAppAdapter extends BaseAdapter {
 
     Activity activity;
     ArrayList<AppStructure> appStrucutreList;
+
     public InstalledAppAdapter(Activity act, ArrayList<AppStructure> appStructure) {
 
         this.activity = act;
         this.appStrucutreList = appStructure;
 
     }
+
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
@@ -60,11 +64,11 @@ public class InstalledAppAdapter extends  BaseAdapter {
     @Override
     public View getView(int arg0, View view, ViewGroup arg2) {
 
-        LayoutInflater inflator =(LayoutInflater)activity.getSystemService(activity.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflator = (LayoutInflater) activity.getSystemService(activity.LAYOUT_INFLATER_SERVICE);
         view = inflator.inflate(R.layout.customadapter, null);
 
-        TextView appName = (TextView)view.findViewById(R.id.applicationName);
-        ImageView appIcon = (ImageView)view.findViewById(R.id.appIcon);
+        TextView appName = (TextView) view.findViewById(R.id.applicationName);
+        ImageView appIcon = (ImageView) view.findViewById(R.id.appIcon);
         appName.setText(appStrucutreList.get(arg0).appName);
         appIcon.setBackgroundDrawable(appStrucutreList.get(arg0).appIcons);
 

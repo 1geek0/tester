@@ -28,114 +28,128 @@
     <include
         layout="@layout/toolbar"
 
-        android:id="@+id/toolhome"
-        />
+        android:id="@+id/toolhome" />
 
-<RelativeLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_below="@id/toolhome">
-    <ScrollView
-        android:id="@+id/scview"
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="fill_parent"
+        android:layout_below="@id/toolhome">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <ScrollView
+            android:id="@+id/scview"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
-                <RelativeLayout
+                <LinearLayout
+                    android:layout_marginBottom="30dp"
+                    android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50sp">
+                    android:layout_height="fill_parent">
 
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
 
-                    <Button
-                        style="@style/AppTheme"
-                        android:layout_centerHorizontal="true"
-                        android:textColor="#ffffff"
-                        android:id="@+id/getInfo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Get Info"
-                        android:padding="15dp"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
-                        android:background="@drawable/back"/>
-                    <Button
-                        style="@style/AppTheme"
-                        android:id="@+id/bkp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/getInfo"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/back"
-                        android:elevation="19sp"
-                        android:padding="15dp"
-                        android:text="Backup IMEI"
-                        android:textColor="#ffffff"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        <Button
+                            android:id="@+id/wManagergate"
+                            style="@style/AppTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="30dp"
+                            android:background="@color/accent"
+                            android:elevation="10dp"
+                            android:padding="15dp"
+                            android:text="WhatsApp Manager"
+                            android:textColor="#ffffff"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
 
-                    <Button
-                        style="@style/AppTheme"
-                        android:id="@+id/cCache"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/bkp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/back"
-                        android:elevation="10dp"
-                        android:padding="15dp"
-                        android:text="Clear Cache"
-                        android:textColor="#ffffff"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        <Button
+                            android:layout_marginTop="20dp"
+                            android:layout_below="@id/wManagergate"
+                            android:background="@color/accent"
+                            android:elevation="21dp"
+                            style="@style/AppTheme"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#ffffff"
+                            android:id="@+id/getInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Get Info"
+                            android:padding="15dp"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/bg"
-                        style="@style/AppTheme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/cCache"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/back"
-                        android:elevation="10dp"
-                        android:padding="15dp"
-                        android:text="Task Manager"
-                        android:textColor="#ffffff"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        <Button
+                            style="@style/AppTheme"
+                            android:id="@+id/bkp"
+                            android:background="@color/accent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/getInfo"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="30dp"
+                            android:padding="15dp"
+                            android:text="Backup IMEI"
+                            android:textColor="#ffffff"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/appsize"
-                        style="@style/AppTheme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/bg"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/back"
-                        android:elevation="10dp"
-                        android:padding="15dp"
-                        android:text="App Backup"
-                        android:textColor="#ffffff"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        <Button
+                            style="@style/AppTheme"
+                            android:background="@color/accent"
+                            android:id="@+id/cCache"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/bkp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="30dp"
+                            android:padding="15dp"
+                            android:text="Clear Cache"
+                            android:textColor="#ffffff"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
 
-                </RelativeLayout>
+                        <Button
+                            android:background="@color/accent"
+                            android:id="@+id/bg"
+                            style="@style/AppTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/cCache"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="30dp"
+                            android:padding="15dp"
+                            android:text="Task Manager"
+                            android:textColor="#ffffff"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/appsize"
+                            style="@style/AppTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/bg"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="30dp"
+                            android:background="@color/accent"
+                            android:elevation="10dp"
+                            android:padding="15dp"
+                            android:text="App Backup"
+                            android:textColor="#ffffff"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
 
 </RelativeLayout>

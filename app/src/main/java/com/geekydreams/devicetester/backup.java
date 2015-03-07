@@ -53,8 +53,8 @@ import java.util.List;
 
 
 public class backup extends ActionBarActivity {
-    List appPakageList ;
-    Intent intent ;
+    List appPakageList;
+    Intent intent;
     BackApkStructure backStr;
     ListView listView;
     ArrayList<BackApkStructure> appList = new ArrayList<BackApkStructure>();
@@ -65,11 +65,12 @@ public class backup extends ActionBarActivity {
     private HashMap<Integer, Integer> myChecked = new HashMap<Integer, Integer>();
 
     int selectedPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backup);
-        Toolbar toolbar =(Toolbar) findViewById(R.id.toolup);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolup);
         toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
         setSupportActionBar(toolbar);
 
@@ -77,9 +78,9 @@ public class backup extends ActionBarActivity {
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         appPakageList = getPackageManager().queryIntentActivities(intent, 0);
 
-        listView = (ListView)findViewById(R.id.appList);
-        backUpAllBtn = (Button )findViewById(R.id.backUpBtn);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar1);
+        listView = (ListView) findViewById(R.id.appList);
+        backUpAllBtn = (Button) findViewById(R.id.backUpBtn);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
         scnView = (TextView) findViewById(R.id.scn);
         scnrel = (RelativeLayout) findViewById(R.id.real);
 
@@ -102,7 +103,6 @@ public class backup extends ActionBarActivity {
             super.onPreExecute();
 
 
-
         }
 
         @Override
@@ -112,7 +112,7 @@ public class backup extends ActionBarActivity {
                 backStr = new BackApkStructure();
                 backStr.apkSourceDir = resolveInFo.activityInfo.applicationInfo.publicSourceDir;
                 backStr.apkName = resolveInFo.loadLabel(getPackageManager()).toString();
-                backStr.icons  =resolveInFo.loadIcon(getPackageManager());
+                backStr.icons = resolveInFo.loadIcon(getPackageManager());
                 appList.add(backStr);
             }
 
@@ -134,8 +134,7 @@ public class backup extends ActionBarActivity {
     }
 
 
-
-    public class InstalledAppAdapter extends  BaseAdapter {
+    public class InstalledAppAdapter extends BaseAdapter {
 
         Activity activity;
         ArrayList<BackApkStructure> appStrucutreList;
@@ -146,8 +145,8 @@ public class backup extends ActionBarActivity {
             this.appStrucutreList = appStructure;
 
 
-
         }
+
         @Override
         public int getCount() {
             // TODO Auto-generated method stub
@@ -169,12 +168,12 @@ public class backup extends ActionBarActivity {
         @Override
         public View getView(final int position, View view, ViewGroup arg2) {
 
-            LayoutInflater inflator =(LayoutInflater)activity.getSystemService(activity.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflator = (LayoutInflater) activity.getSystemService(activity.LAYOUT_INFLATER_SERVICE);
             view = inflator.inflate(R.layout.adapter_layout, null);
 
-            TextView appName = (TextView)view.findViewById(R.id.applicationName);
-            ImageView appIcon = (ImageView)view.findViewById(R.id.appIcon);
-            Button backBtn = (Button)view.findViewById(R.id.back_btn);
+            TextView appName = (TextView) view.findViewById(R.id.applicationName);
+            ImageView appIcon = (ImageView) view.findViewById(R.id.appIcon);
+            Button backBtn = (Button) view.findViewById(R.id.back_btn);
             appName.setText(appStrucutreList.get(position).apkName);
             appIcon.setBackgroundDrawable(appStrucutreList.get(position).icons);
 
@@ -193,6 +192,7 @@ public class backup extends ActionBarActivity {
 
     public class BackUpSingleAppAsyncTask extends AsyncTask<String, Void, String> {
         ProgressDialog progress;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -220,6 +220,7 @@ public class backup extends ActionBarActivity {
 
     public class BackUpAllAppAsyncTask extends AsyncTask<String, Void, String> {
         ProgressDialog progress;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -240,31 +241,31 @@ public class backup extends ActionBarActivity {
         @Override
         protected void onPostExecute(String result) {
             progress.dismiss();
-            Toast.makeText(backup.this,"All Apps Successfully Backed Up!", Toast.LENGTH_LONG).show();
+            Toast.makeText(backup.this, "All Apps Successfully Backed Up!", Toast.LENGTH_LONG).show();
             super.onPostExecute(result);
         }
     }
 
 
-    private void backupSingleApp(int position){
+    private void backupSingleApp(int position) {
         File apkSourceDirec = new File(appList.get(position).apkSourceDir);
         try {
-            String file_name =appList.get(position).apkName;
+            String file_name = appList.get(position).apkName;
             File fileDirectry = new File(Environment.getExternalStorageDirectory()
                     .toString() + "/Backup Apps(Single)");
             fileDirectry.mkdirs();
             fileDirectry = new File(fileDirectry.getPath() + "/" + file_name + ".apk");
             fileDirectry.createNewFile();
-                InputStream in = new FileInputStream(apkSourceDirec);
-                OutputStream out = new FileOutputStream(fileDirectry);
-                byte[] buf = new byte[1024];
-                int len;
-                while ((len = in.read(buf)) > 0) {
-                    out.write(buf, 0, len);
-                }
-                in.close();
-                out.close();
-                Log.e("file_name--", "File copied. ");
+            InputStream in = new FileInputStream(apkSourceDirec);
+            OutputStream out = new FileOutputStream(fileDirectry);
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = in.read(buf)) > 0) {
+                out.write(buf, 0, len);
+            }
+            in.close();
+            out.close();
+            Log.e("file_name--", "File copied. ");
         } catch (FileNotFoundException ex) {
 
         } catch (IOException e) {
@@ -274,12 +275,12 @@ public class backup extends ActionBarActivity {
     }
 
 
-    private void backupAllApp(){
+    private void backupAllApp() {
 
-        for(int i = 0; i<appList.size(); i++){
+        for (int i = 0; i < appList.size(); i++) {
             File apkSourceDirec = new File(appList.get(i).apkSourceDir);
             try {
-                String file_name =appList.get(i).apkName;
+                String file_name = appList.get(i).apkName;
                 File fileDirectry = new File(Environment.getExternalStorageDirectory()
                         .toString() + "/All Apps Backup");
                 fileDirectry.mkdirs();

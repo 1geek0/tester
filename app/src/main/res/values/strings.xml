@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Know Your Droid</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">Info Screen</string>
     <string name="title_activity_splash">Splash</string>
@@ -10,6 +9,9 @@
     <string name="title_activity_backup">Backup</string>
     <string name="title_activity_background">Background Apps</string>
     <string name="clear">Clear Cache</string>
-    <string name="title_activity_wmanager">wmanager</string>
+    <string name="title_activity_wmanager">WhatsApp Manager</string>
+    <string name="title_activity_about">about</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>

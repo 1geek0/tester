@@ -19,6 +19,7 @@ package com.geekydreams.devicetester;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
@@ -41,6 +42,7 @@ public class background extends ActionBarActivity {
     List<RunningTaskInfo> runningAPps;
     Button killApps;
     ActivityManager activityManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,7 @@ public class background extends ActionBarActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
         setSupportActionBar(toolbar);
         listView = (ListView) findViewById(R.id.appList);
-        killApps = (Button)findViewById(R.id.kilBtn);
+        killApps = (Button) findViewById(R.id.kilBtn);
         activityManager = (ActivityManager) this
                 .getSystemService(ACTIVITY_SERVICE);
 
@@ -60,7 +62,7 @@ public class background extends ActionBarActivity {
             appStructure = new AppStructure();
 
             try {
-                appStructure.appName =(String) getPackageManager().getApplicationLabel(getPackageManager()
+                appStructure.appName = (String) getPackageManager().getApplicationLabel(getPackageManager()
                         .getApplicationInfo(runningAPps.get(i).topActivity.getPackageName(),
                                 PackageManager.GET_META_DATA));
                 appStructure.appIcons = getPackageManager().getApplicationIcon(runningAPps.get(i).topActivity.getPackageName());
@@ -100,12 +102,11 @@ public class background extends ActionBarActivity {
     }
 
 
-    public void updateAdpater(){
+    public void updateAdpater() {
         InstalledAppAdapter adapter = new InstalledAppAdapter(background.this,
                 appStructurelist);
         listView.setAdapter(adapter);
     }
-
 
 
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<!--
   ~ This file is part of Know Your Droid.
   ~
   ~     Know Your Droid is free software: you can redistribute it and/or modify
@@ -15,18 +15,13 @@
   ~     along with Know Your Droid.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- Background -->
-    <item>
-        <shape>
-            <solid android:color="@color/accent" />
-            <corners android:radius="3dp" />
-            <padding
-                android:right="2dp"
-                android:bottom="2dp"
-                android:left="2dp"
-                android:top="2dp" />
-        </shape>
-    </item>
-</layer-list>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.geekydreams.devicetester.about">
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

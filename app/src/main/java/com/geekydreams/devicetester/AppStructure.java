@@ -20,6 +20,7 @@ package com.geekydreams.devicetester;
 /**
  * Created by Nilay on 24/12/2014.
  */
+
 import android.graphics.drawable.Drawable;
 
 public class AppStructure {

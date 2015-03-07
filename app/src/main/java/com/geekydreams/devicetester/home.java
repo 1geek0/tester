@@ -66,9 +66,17 @@ public class home extends ActionBarActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.icons));
         setSupportActionBar(toolbar);
 
+        Button wManagerButton = (Button) findViewById(R.id.wManagergate);
         Button ng = (Button) findViewById(R.id.bg);
         Button appsizeView = (Button) findViewById(R.id.appsize);
 
+        wManagerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home.this, wmanager.class);
+                startActivity(intent);
+            }
+        });
         appsizeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,6 +168,8 @@ public class home extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(home.this, about.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
